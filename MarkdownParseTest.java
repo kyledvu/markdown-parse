@@ -62,7 +62,7 @@ public class MarkdownParseTest {  // class header
     
     @Test
     public void testFile9() throws IOException {
-        Path fileName = Path.of("./test-file4.md");
+        Path fileName = Path.of("./test-file9.md");
         String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
 
