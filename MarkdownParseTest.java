@@ -67,4 +67,5 @@ public class MarkdownParseTest {  // class header
         ArrayList<String> links = MarkdownParse.getLinks(contents);
 
         assertEquals(List.of(), links);
+    }
 }
