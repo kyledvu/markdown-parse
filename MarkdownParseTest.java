@@ -68,4 +68,11 @@ public class MarkdownParseTest {  // class header
 
         assertEquals(List.of(), links);
     }
+
+    @Test
+    public void testSpaceAfterParen() {
+        String contents = "[title]( space-in-url.com)";
+        List<String> expect = List.of("space-in-url.com");
+        assertEquals(expect, NewMDParse.getLinks(contents));
+    }
 }
