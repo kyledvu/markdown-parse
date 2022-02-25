@@ -75,4 +75,31 @@ public class MarkdownParseTest {  // class header
         List<String> expect = List.of("space-in-url.com");
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
+
+    @Test
+    public void testSnippetOne() throws IOException {
+        Path fileName = Path.of("./test-snippet1.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("`google.com", "google.com", "ucsd.edu"), links);
+    }
+
+    @Test
+    public void testSnippetTwo() throws IOException {
+        Path fileName = Path.of("./test-snippet2.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("a.com", "a.com(())", "example.com"), links);
+    }
+
+    @Test
+    public void testSnippetThree() throws IOException {
+        Path fileName = Path.of("./test-snippet3.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+
+        assertEquals(List.of("https://ucsd-cse15l-w22.github.io/"), links);
+    }
 }
